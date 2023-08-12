@@ -288,9 +288,7 @@ Json::Value downloadClipsFromJson(Json::Value clipsRoot, int clipsCount, std::st
 
         
     }
-
     
     return clipArray;
-    
-   
+
 }

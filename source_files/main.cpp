@@ -10,17 +10,19 @@ int main(int argc, const char* argv [])
 
     std::vector<Bubble> bubbles = getAllBubbles();
 
-    Json::Value allClips(Json::arrayValue);
+    
 
     for (int i = 0; i < bubbles.size(); i++)
     {
+        Json::Value allClips(Json::arrayValue);
+        
         for (int j = 0; j < bubbles[i].GAMES_NAMES.size();j++)
         {
             std::cout << bubbles[i].GAMES_NAMES[j] << ": " << std::endl;
             std::string newGameId = getGameOrBroadcasterId(bubbles[i].GAMES_NAMES[j], authToken, clientId, false);
             std::cout << newGameId << std::endl;
             Json::Value JsonData = getClipJsonData(false, authToken, clientId, newGameId, static_cast<std::string>("100"), getRFC3339TimeLast24H((86400)));
-            Json::Value clipsArray = downloadClipsFromJson(JsonData, 5, bubbles[i].BUBBLE_NAME, j, bubbles[i].GAMES_NAMES[j]);
+            Json::Value clipsArray = downloadClipsFromJson(JsonData, 2, bubbles[i].BUBBLE_NAME, j, bubbles[i].GAMES_NAMES[j]);
             allClips.append(clipsArray);
             std::cout << std::endl;
         }
@@ -31,12 +33,12 @@ int main(int argc, const char* argv [])
             std::string newBroadcasterId = getGameOrBroadcasterId(bubbles[i].BROADCASTER_NAMES[j], authToken, clientId, true);
             std::cout << newBroadcasterId << std::endl;
             Json::Value JsonData = getClipJsonData(true, authToken, clientId, newBroadcasterId, static_cast<std::string>("100"), getRFC3339TimeLast24H((86400)));
-            Json::Value clipsArray = downloadClipsFromJson(JsonData, 5, bubbles[i].BUBBLE_NAME, j, bubbles[i].GAMES_NAMES[j]);
+            Json::Value clipsArray = downloadClipsFromJson(JsonData, 2, bubbles[i].BUBBLE_NAME, j, bubbles[i].GAMES_NAMES[j]);
             allClips.append(clipsArray);
             std::cout << std::endl;
         }
         
-       std::ofstream o("all_clips.json"); // Write all clips to a single JSON file
+        std::ofstream o(bubbles[i].BUBBLE_NAME + ".json"); // Write all clips to a single JSON file
         if (o.is_open())
         {
             Json::StreamWriterBuilder writer;
