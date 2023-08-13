@@ -1,6 +1,5 @@
 #include "twitch.hpp"
-#include <fstream>
-#include <jsoncpp/json/value.h>
+#include <curl/curl.h>
 
 
 

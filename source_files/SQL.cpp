@@ -1,4 +1,5 @@
 #include "twitch.hpp"
+#include <sqlite3.h>
 
 
 std::vector<std::string> getArrayFromString(std::string databaseString)

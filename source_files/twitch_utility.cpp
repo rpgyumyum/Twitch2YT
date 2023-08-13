@@ -1,4 +1,6 @@
 #include "twitch.hpp"
+#include <ctime>
+#include <locale>
 
 std::string getRFC3339TimeLast24H(int timeSubtract)//86400 is a day
 {

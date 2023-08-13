@@ -1,6 +1,5 @@
 #include "twitch.hpp"
-#include <jsoncpp/json/value.h>
-
+#include <fstream>
 
 int main(int argc, const char* argv [])
 {
@@ -53,16 +52,6 @@ int main(int argc, const char* argv [])
         
     }
 
-    
-
-
-    //std::cout << getClipJsonData(false, authToken, clientId, newGameId, static_cast<std::string>("5"), getRFC3339TimeLast24H((86400 * 7)));
-    //std::string foo = replaceSpacesWithPercent20("Pools, Hot Tubs, and Beaches");
-    //std::cout << foo << std::endl;
-
-    /*std::string newGameId = getGameOrBroadcasterId(game, authToken, clientId, false);
-    *downloadClipsFromJson(getClipJsonData(false, authToken, clientId, newGameId, static_cast<std::string>("30"), getRFC3339TimeLast24H((86400 * 80))));
-    */
     return 0;
 
 }

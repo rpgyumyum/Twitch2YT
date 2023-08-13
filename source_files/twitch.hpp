@@ -1,18 +1,10 @@
 #include <cstring>
 #include <iostream>
-#include <jsoncpp/json/reader.h>
-#include <jsoncpp/json/value.h>
 #include <string>
-#include <curl/curl.h>
-#include <sstream>
 #include <jsoncpp/json/json.h>
-#include <jsoncpp/json/writer.h>
-#include <iterator>
-#include <locale>
-#include <ctime>
 #include <vector>
-#include <sqlite3.h>
-#include <fstream>
+
+
 
 //Twitch utility
 std::string replaceSpacesWithPercent20(const std::string& inputString);
