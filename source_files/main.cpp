@@ -25,6 +25,7 @@ int main(int argc, const char* argv [])
             allClips.append(clipsArray);
             std::cout << std::endl;
         }
+        
 
         for (int j = 0; j < bubbles[i].BROADCASTER_NAMES.size();j++)
         {
@@ -36,7 +37,8 @@ int main(int argc, const char* argv [])
             allClips.append(clipsArray);
             std::cout << std::endl;
         }
-        
+
+
         std::ofstream o(bubbles[i].BUBBLE_NAME + ".json"); // Write all clips to a single JSON file
         if (o.is_open())
         {
