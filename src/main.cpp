@@ -1,11 +1,15 @@
 #include "twitch.hpp"
+#include <cstdlib>
 #include <fstream>
+
 
 int main(int argc, const char* argv [])
 {
     std::string clientId = "mnt51l94omwga9pdo9mskeaxd5fzsq";
     std::string clientSecret = "q9nhswkn2b8csepv5t5gmqtup3kz6h";
     std::string authToken = "w8vjnn9zxc101lwldmtum5lm7jhzty";
+
+    
 
     std::vector<Bubble> bubbles = getAllBubbles();
 
@@ -51,6 +55,11 @@ int main(int argc, const char* argv [])
         {
             std::cerr << "Unable to open file for writing." << std::endl;
         } 
+
+
+        //Upload every downloaded clip with python 
+        std::string pythonCommand = "src/main.py " + bubbles[i].BUBBLE_NAME + ".json";
+        system(pythonCommand.c_str());
         
     }
 

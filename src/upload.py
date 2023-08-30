@@ -15,13 +15,12 @@ def get_path(file_path: str) -> str:
     # no clue why, but this character gets added for me when running
     return str(Path(file_path)).replace("\u202a", "")
 
-
 class Upload:
     def __init__(
         self,
         profile: Union[str, FirefoxProfile],
         executable_path: str = "geckodriver",
-        timeout: int = 3,
+        timeout: int = 10,
         headless: bool = True,
         debug: bool = True,
         options: Optional[FirefoxOptions] = None,
@@ -81,13 +80,12 @@ class Upload:
 
         print(f'Trying to upload "{file}" to YouTube...')
 
-        self.driver.find_element(By.XPATH, INPUT_FILE_VIDEO).send_keys(get_path(file))
+        #self.driver.find_element(By.XPATH, INPUT_FILE_VIDEO).send_keys(get_path(file))
+        self.driver.find_element(By.XPATH, INPUT_FILE_VIDEO).send_keys(file)
         sleep(self.timeout)
 
         modal = self.driver.find_element(By.CSS_SELECTOR, UPLOAD_DIALOG_MODAL)
         print("Found YouTube upload Dialog Modal")
-
-        sleep(5)
 
         if only_upload:
             video_id = self.get_video_id(modal)
@@ -98,9 +96,7 @@ class Upload:
 
             return True, video_id
 
-        for i in range(10):
-            print(i)
-            sleep(1)
+        sleep(self.timeout)
 
 
         print(f'Trying to set "{title}" as title...')
@@ -132,16 +128,16 @@ class Upload:
 
             print(f'Trying to set "{description}" as description...')
             #container = modal.find_element(By.CSS_SELECTOR, DESCRIPTION_CONTAINER)
-            description_field = self.click(driver.find_element(By.CSS_SELECTOR, DESCRIPTION_CONTAINER))
+            description_field = self.click(modal.find_element(By.CSS_SELECTOR, DESCRIPTION_CONTAINER))
 
             self.send(description_field, description)
 
-        for i in range(10):
-            print(i)
-            sleep(1)
+        #for i in range(10):
+        #    print(i)
+        #    sleep(1)
 
         print('Trying to set video to "Not made for kids"...')
-        kids_section = modal.find_element(By.Name, NOT_MADE_FOR_KIDS_LABEL)
+        kids_section = modal.find_element(By.NAME, NOT_MADE_FOR_KIDS_LABEL)
         kids_section.find_element(By.ID, RADIO_LABEL).click()
         sleep(self.timeout)
 
@@ -202,19 +198,4 @@ class Upload:
     def close(self):
         self.driver.quit()
         print("Closed Firefox")
-
-
-config = {
-        "file" : "/home/Ikarus/Projects/Twitch/clips/NurturingDullHummingbirdTebowing-sd1N15CHXG250b-9.mp4",
-        "title" : "Totally sick valorant clip U",
-        "description" : "This is so sick OMG",
-        "tags" : ["cool", "rad", "wicked", "valorant"]
-}
-
-
-
-
-upload = Upload("/home/Ikarus/.mozilla/firefox/cuiqx1h3.Selenium1", "geckodriver", 2, False, False)
-
-
-upload.upload(**config)
+        

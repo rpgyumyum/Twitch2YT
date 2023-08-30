@@ -248,7 +248,7 @@ Json::Value downloadClipsFromJson(Json::Value clipsRoot, int clipsCount, std::st
             std::string url = thumbnailUrl;
 
             
-            std::string filePath = "./clips/" + entry["id"].asString() + ".mp4";
+            std::string filePath = "/home/Ikarus/Projects/Twitch/clips/" + entry["id"].asString() + ".mp4";
             char outfilename[FILENAME_MAX];
             std::strncpy(outfilename, filePath.c_str(), sizeof(outfilename) - 1);
             outfilename[sizeof(outfilename) - 1] = '\0';
@@ -269,7 +269,7 @@ Json::Value downloadClipsFromJson(Json::Value clipsRoot, int clipsCount, std::st
             std::cout << counter + 1 << " DOWNLOAD: " << filePath << std::endl;
 
             Json::Value clipObject;
-            clipObject["clip_name"] = "./clips/" + thumbnailUrl;
+            clipObject["file_name"] = filePath;
             clipObject["clip_description"] = entry["title"].asString();
             clipObject["broadcaster_name"] = entry["broadcaster_name"].asString();
             clipObject["game"] = game;
