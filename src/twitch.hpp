@@ -20,12 +20,8 @@ Json::Value downloadClipsFromJson(Json::Value clipsRoot, int clipsCount, std::st
 struct Bubble {
     std::string BUBBLE_NAME;
     std::vector<std::string> GAMES_NAMES;
-    std::vector<std::string> GAME_IDS;
     std::vector<std::string> BROADCASTER_NAMES;
-    std::vector<std::string> BROADCASTER_IDS;
-    std::string ACCOUNT_EMAIL;
-    std::string TIKTOK_ACCOUNT_PASSWORD;
-    std::string YOUTUBE_ACCOUNT_PASSWORD;
+    std::string BROWSER_PROFILE_PATH;
 };
 
 std::vector<Bubble> getAllBubbles();

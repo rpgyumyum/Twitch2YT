@@ -44,17 +44,9 @@ std::vector<Bubble> getAllBubbles() // Function name changed to better represent
         if (sqlite3_column_text(stmt, 1))
             newBubble.GAMES_NAMES = getArrayFromString(reinterpret_cast<const char*>(sqlite3_column_text(stmt, 1)));
         if (sqlite3_column_text(stmt, 2))
-            newBubble.GAME_IDS = getArrayFromString(reinterpret_cast<const char*>(sqlite3_column_text(stmt, 2)));
-        if (sqlite3_column_text(stmt, 3))
-            newBubble.BROADCASTER_NAMES = getArrayFromString(reinterpret_cast<const char*>(sqlite3_column_text(stmt, 3)));
-        if (sqlite3_column_text(stmt, 4))
-            newBubble.BROADCASTER_IDS = getArrayFromString(reinterpret_cast<const char*>(sqlite3_column_text(stmt, 4)));
-        if (sqlite3_column_text(stmt, 5))
-            newBubble.ACCOUNT_EMAIL = reinterpret_cast<const char*>(sqlite3_column_text(stmt, 5));
-        if (sqlite3_column_text(stmt, 6))
-            newBubble.TIKTOK_ACCOUNT_PASSWORD = reinterpret_cast<const char*>(sqlite3_column_text(stmt, 6));
-        if (sqlite3_column_text(stmt, 7))
-            newBubble.YOUTUBE_ACCOUNT_PASSWORD = reinterpret_cast<const char*>(sqlite3_column_text(stmt, 7));
+            newBubble.BROADCASTER_NAMES = getArrayFromString(reinterpret_cast<const char*>(sqlite3_column_text(stmt, 2)));
+         if (sqlite3_column_text(stmt, 6))
+            newBubble.BROWSER_PROFILE_PATH = reinterpret_cast<const char*>(sqlite3_column_text(stmt, 6));
 
         bubbles.push_back(newBubble); // Add the retrieved bubble to the vector
     }

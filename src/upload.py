@@ -22,7 +22,6 @@ class Upload:
         executable_path: str = "geckodriver",
         timeout: int = 10,
         headless: bool = True,
-        debug: bool = True,
         options: Optional[FirefoxOptions] = None,
     ) -> None:
         if options is None:
@@ -39,7 +38,7 @@ class Upload:
             options=options
         )
         self.timeout = timeout
-        print(debug)
+        
 
         print("Firefox is now running")
 
@@ -113,10 +112,19 @@ class Upload:
             )
 
         # clearing out title which defaults to filename
-        for _ in range(len(title_field.text) + 10):
+        for _ in range(len(title_field.text)):
             # more backspaces than needed just to be sure
             title_field.send_keys(Keys.BACKSPACE)
-            sleep(0.1)
+            sleep(0.05)
+
+
+        title_field = self.click(modal.find_element(By.ID, TEXTBOX))
+        for _ in range(len(title_field.text)):
+            # more backspaces than needed just to be sure
+            title_field.send_keys(Keys.BACKSPACE)
+            sleep(0.05)
+
+        
 
         self.send(title_field, title)
 
