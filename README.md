@@ -29,3 +29,10 @@ In the browser-profile column put in the root directory of a browser where you a
 ## Usage 
 After following the installation steps you can execute the binary ```$ ./TWITCH``` 
 If Selenium has any issue increase the sleep time or make sure none of those pesky YouTube suggestion boxes pop up and interfere with the webdriver.
+
+
+# TODO
+- [ ] dont use sql to form bubbles seems weird 
+- [ ] cache game and boradcaster id 
+- [ ] cache OAuth token
+- [ ] getClipJsonData then downloadClipsfromJson
