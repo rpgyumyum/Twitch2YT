@@ -14,7 +14,6 @@ int main(int argc, const char* argv [])
     std::string authToken = getOAuthToken(clientId, clientSecret);
 
 
-
     std::vector<Bubble> bubbles = getAllBubbles();
 
     
