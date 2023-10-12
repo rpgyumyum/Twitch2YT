@@ -15,6 +15,7 @@ def get_path(file_path: str) -> str:
     # no clue why, but this character gets added for me when running
     return str(Path(file_path)).replace("\u202a", "")
 
+
 class Upload:
     def __init__(
         self,
@@ -38,7 +39,6 @@ class Upload:
             options=options
         )
         self.timeout = timeout
-        
 
         print("Firefox is now running")
 
@@ -79,7 +79,7 @@ class Upload:
 
         print(f'Trying to upload "{file}" to YouTube...')
 
-        #self.driver.find_element(By.XPATH, INPUT_FILE_VIDEO).send_keys(get_path(file))
+        # self.driver.find_element(By.XPATH, INPUT_FILE_VIDEO).send_keys(get_path(file))
         self.driver.find_element(By.XPATH, INPUT_FILE_VIDEO).send_keys(file)
         sleep(self.timeout)
 
@@ -117,7 +117,6 @@ class Upload:
             title_field.send_keys(Keys.BACKSPACE)
             sleep(0.05)
 
-
         title_field = self.click(modal.find_element(By.ID, TEXTBOX))
         for _ in range(len(title_field.text)):
             # more backspaces than needed just to be sure
@@ -135,12 +134,12 @@ class Upload:
                 )
 
             print(f'Trying to set "{description}" as description...')
-            #container = modal.find_element(By.CSS_SELECTOR, DESCRIPTION_CONTAINER)
+            # container = modal.find_element(By.CSS_SELECTOR, DESCRIPTION_CONTAINER)
             description_field = self.click(modal.find_element(By.CSS_SELECTOR, DESCRIPTION_CONTAINER))
 
             self.send(description_field, description)
 
-        #for i in range(10):
+        # for i in range(10):
         #    print(i)
         #    sleep(1)
 
@@ -206,4 +205,3 @@ class Upload:
     def close(self):
         self.driver.quit()
         print("Closed Firefox")
-        

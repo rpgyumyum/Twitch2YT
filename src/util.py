@@ -3,12 +3,10 @@ from moviepy.video.fx import *
 import PIL
 
 
-
 def craftDescription(broadcaster_name, game):
     craftedDesc = f"#{broadcaster_name} #{game}\n" +"#viral #Twitch #twitchclip #gaming " 
        
     return craftedDesc
-
 
 
 def createCustomVideo(input_clip: str, title: str):
@@ -31,4 +29,3 @@ def createCustomVideo(input_clip: str, title: str):
 
     import os
     os.replace(temp_output_path, input_clip)
-
