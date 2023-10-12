@@ -11,4 +11,29 @@ CREATE TABLE Credentials(
     INSERT INTO Credentials (BUBBLE_NAME, GAMES_NAMES, ACCOUNT_EMAIL, EMAIL_PASSWORD, YOUTUBE_ACCOUNT_PASSWORD, BROWSER_PROFILE_PATH)
     VALUES ('Valorant', 'Valorant', '', '', '', '');
 
-    
+
+
+
+{
+  "BUBBLE_NAME": "" [
+    {
+      "GAMES_NAMES": [""],
+      "BROADCASTER_NAMES": [""],
+      "BROWSER_PROFILE_PATH": "",
+      "ACCOUNT_EMAIL": "",
+      "EMAIL_PASSWORD": "",
+      "GOOGLE_PASSWORD": ""
+    }
+  ],
+  "BUBBLE_NAME": "Valorant"[
+    {
+      "GAMES_NAMES": ["Valorant", "Overwatch"],
+      "BROADCASTER_NAMES": ["Tarik"],
+      "BROWSER_PROFILE_PATH": "/home/Lukas/.mozilla/profile/path",
+      "ACCOUNT_EMAIL": "account@email.com",
+      "EMAIL_PASSWORD": "Password123",
+      "GOOGLE_PASSWORD": "Password123"
+    }
+  ]
+  
+} 

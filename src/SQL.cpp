@@ -17,7 +17,7 @@ std::vector<std::string> getArrayFromString(std::string databaseString)
     return databaseArray;
 }
 
-std::vector<Bubble> getAllBubbles() // Function name changed to better represent what it does
+std::vector<Bubble> getAllBubbles()
 {
     std::vector<Bubble> bubbles; // Vector to store all retrieved bubbles
 
